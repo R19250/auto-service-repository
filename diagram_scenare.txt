@@ -1,0 +1,16 @@
+scenář vytvoření objednávky, editace objednávky
+
+UC - Správa aplikace
+scenář 1 - úspěšné přihlášení
+scénař 2 - neúspěšné přihlášení
+scénař 3 - odhlášení 
+
+UC - Správa objednávek - 
+scénář 1 - vytvoření rezervace
+scénař 2 - zrušení
+scénař 3 - úprava
+
+UC - Správa náhradních dílů
+scénař 1 - koupě
+scénař 2 - vyřazení 
+scénař 3 - použito
