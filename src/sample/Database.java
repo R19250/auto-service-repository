@@ -1,11 +1,14 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.Connection;
 import java.sql.*;
 
 public class Database {
 
-    private Connection createConnection() {
+    private static Connection createConnection() {
         String url = "jdbc:mariadb://soveticka.eu:3307/swi_work";
         try {
             Class.forName("org.mariadb.jdbc.Driver");
@@ -20,11 +23,36 @@ public class Database {
         return null;
     }
 
+
+
+    public static ObservableList<Order> getDataOrders(){
+        Connection conn = createConnection();
+        ObservableList<Order> list = FXCollections.observableArrayList();
+        try {
+            PreparedStatement ps = conn.prepareStatement("select * from sampleGuiTableView");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()){
+                list.add(new Order(Integer.parseInt(rs.getString("orderID")),
+                        rs.getString("name"), rs.getString("email"),
+                        rs.getString("spz"), rs.getString("brand"),
+                        rs.getString("model"), rs.getString("date"),
+                        rs.getString("time")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }return list;
+    }
+
+
+
+
+
     public void insertData(String name) {
         Connection con = createConnection();
         try {
             Statement stmt = con.createStatement();
-            String query = String.format("INSERT INTO testTableYolo (name) VALUES('%s')", name);
+            String query = String.format("INSERT INTO sampleGuiTableView (name) VALUES('%s')", name);
             stmt.executeUpdate(query);
             con.close();
             System.out.printf("User %s was successfully added to the Database%n", name);
@@ -50,7 +78,10 @@ public class Database {
             Statement stmt = con.createStatement();
             ResultSet result = stmt.executeQuery(query);
             while(result.next()){
-                System.out.println("[" + result.getString(1) + "] [" + result.getString(2)+ "] ");
+                System.out.println("ID [" + result.getString(1) + "] Name [" + result.getString(2)
+                        + "] Email ["+ result.getString(3)+ "] SPZ ["+ result.getString(4)
+                        + "] Brand ["+ result.getString(5)+ "] Model ["+ result.getString(6)
+                        + "] Date ["+ result.getString(7)+ "] Time ["+ result.getString(8) +"]");
             }
         } catch (SQLException e) {
             System.out.println(e);

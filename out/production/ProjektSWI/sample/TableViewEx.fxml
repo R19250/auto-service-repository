@@ -74,21 +74,27 @@
                   </TableView>
                </children>
             </HBox>
-            <Button layoutX="908.0" layoutY="605.0" mnemonicParsing="false" onAction="#exitButton" prefHeight="25.0" prefWidth="149.0" text="Ukončit" />
+            <Button fx:id="exitButton" layoutX="910.0" layoutY="604.0" mnemonicParsing="false" onAction="#exitButtonPressed" prefHeight="25.0" prefWidth="149.0" text="Ukončit" />
             <Separator layoutX="879.0" layoutY="570.0" prefHeight="25.0" prefWidth="211.0" />
             <Separator layoutX="877.0" layoutY="179.0" prefHeight="25.0" prefWidth="211.0" />
             <TextField layoutX="908.0" layoutY="86.0" />
             <Text layoutX="943.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vyhledávání" wrappingWidth="80.0" />
             <Button layoutX="908.0" layoutY="131.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Vyhledat" />
-            <SplitMenuButton layoutX="908.0" layoutY="43.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Vyhledat podle">
+            <SplitMenuButton layoutX="910.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Vyhledat podle">
               <items>
+                  <MenuItem mnemonicParsing="false" text="OrderID" />
                 <MenuItem mnemonicParsing="false" text="Jména" />
+                  <MenuItem mnemonicParsing="false" text="Email" />
                 <MenuItem mnemonicParsing="false" text="SPZ" />
+                  <MenuItem mnemonicParsing="false" text="Značka" />
+                  <MenuItem mnemonicParsing="false" text="Model" />
+                  <MenuItem mnemonicParsing="false" text="Datum" />
+                  <MenuItem mnemonicParsing="false" text="Zamluvený čas" />
               </items>
             </SplitMenuButton>
-            <Button layoutX="910.0" layoutY="224.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Přidat Objednávku" />
-            <Button layoutX="910.0" layoutY="277.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Upravit Objednávku" />
-            <Button layoutX="910.0" layoutY="329.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Odebrat Objednávku" />
+            <Button fx:id="AddOrderButton" layoutX="910.0" layoutY="224.0" mnemonicParsing="false" onAction="#AddOrderButtonClick" prefHeight="25.0" prefWidth="149.0" text="Přidat Objednávku" />
+            <Button fx:id="EditOrderButton" layoutX="910.0" layoutY="277.0" mnemonicParsing="false" onAction="#EditOrderButtonPressed" prefHeight="25.0" prefWidth="149.0" text="Upravit Objednávku" />
+            <Button fx:id="DeleteOrderButton" layoutX="910.0" layoutY="329.0" mnemonicParsing="false" onAction="#DeleteOrderButtonPressed" prefHeight="25.0" prefWidth="149.0" text="Odebrat Objednávku" />
             <Button layoutX="910.0" layoutY="534.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Aktualizovat" />
          </children>
     </AnchorPane>

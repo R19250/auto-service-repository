@@ -10,20 +10,21 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        Parent root = FXMLLoader.load(getClass().getResource("TableViewEx.fxml"));
+        primaryStage.setTitle("SampleTableView");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
 
     public static void main(String[] args) {
 
-       // launch(args);
+        launch(args);
 
-        Database db = new Database();
+        //Database db = new Database();
 
         //db.selectData("SELECT * FROM testTableYolo");
-        db.selectDataArg("SELECT * FROM testTableYolo");
+        //db.selectDataArg("SELECT * FROM sampleGuiTableView");
     }
 }

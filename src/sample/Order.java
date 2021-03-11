@@ -9,6 +9,7 @@ public class Order {
     private String model;
     private String date;
     private String time;
+    private String note;
 
     public Order(int orderID, String name, String email, String spz, String brand, String model, String date, String time) {
         this.orderID = orderID;
@@ -19,6 +20,19 @@ public class Order {
         this.model = model;
         this.date = date;
         this.time = time;
+    }
+
+    public Order(int orderID, String name, String email, String spz, String brand, String model, String date, String time, String note) {
+        this.orderID = orderID;
+        this.name = name;
+        this.email = email;
+        this.spz = spz;
+        this.brand = brand;
+        this.model = model;
+        this.date = date;
+        this.time = time;
+        this.note = note;
+
     }
 
     public int getOrderID() {
@@ -51,5 +65,13 @@ public class Order {
 
     public String getTime() {
         return time;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }
